@@ -1,8 +1,8 @@
 import http from "node:http";
 
-export function getRequestBody(
-  request: http.IncomingMessage
-): Promise<{ body: unknown } | null> {
+export function getRequestBody(request: http.IncomingMessage): Promise<{
+  [propName: string]: unknown;
+} | null> {
   return new Promise((resolve, rejects) => {
     const requestBody: string[] = [];
     request.setEncoding("utf-8");
@@ -13,7 +13,7 @@ export function getRequestBody(
 
     request.on("end", () => {
       try {
-        resolve({ body: JSON.parse(requestBody.join("")) });
+        resolve(JSON.parse(requestBody.join("")));
       } catch {
         resolve(null);
       }

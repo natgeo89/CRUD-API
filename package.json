@@ -1,0 +1,33 @@
+{
+  "name": "crud-api",
+  "version": "1.0.0",
+  "description": "Implement simple CRUD API using in-memory database underneath",
+  "scripts": {
+    "start:dev": "nodemon",
+    "start:prod": "webpack && node ./dist/bundle.js",
+    "lint": "eslint"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/natgeo89/CRUD-API.git"
+  },
+  "author": "Viktar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/natgeo89/CRUD-API/issues"
+  },
+  "homepage": "https://github.com/natgeo89/CRUD-API#readme",
+  "devDependencies": {
+    "@eslint/js": "^9.13.0",
+    "@types/node": "^22.7.6",
+    "eslint": "^9.13.0",
+    "globals": "^15.11.0",
+    "nodemon": "^3.1.7",
+    "ts-loader": "^9.5.1",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.3",
+    "typescript-eslint": "^8.10.0",
+    "webpack": "^5.95.0",
+    "webpack-cli": "^5.1.4"
+  }
+}

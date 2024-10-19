@@ -8,4 +8,9 @@ export default [
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,
   { ignores: ["dist/**/*"] },
+  {
+    rules: {
+      "@typescript-eslint/explicit-function-return-type": "warn",
+    },
+  },
 ];

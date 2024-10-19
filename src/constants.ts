@@ -1,5 +1,4 @@
 export const BASE_URL = "/api/users" as const;
-export const URL_DIVIDER = "/" as const;
 
 export enum STATUS_CODES {
   OK = 200,
@@ -11,8 +10,8 @@ export enum STATUS_CODES {
 }
 
 export enum REQUEST_METHODS {
-  GET = 'GET',
-  POST = 'POST',
-  PUT = 'PUT',
-  DELETE = 'DELETE',
+  GET = "GET",
+  POST = "POST",
+  PUT = "PUT",
+  DELETE = "DELETE",
 }

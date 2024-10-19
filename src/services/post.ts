@@ -10,7 +10,7 @@ import { BadRequestError, NotFoundError } from "../errors";
 export async function post(
   request: http.IncomingMessage
 ): Promise<{ statusCode: number; data: User | string }> {
-  if (request.url !== BASE_URL) {
+  if (request.url !== BASE_URL && request.url !== `${BASE_URL}/`) {
     throw new NotFoundError();
   }
 

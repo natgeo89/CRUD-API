@@ -1,11 +1,19 @@
 import { STATUS_CODES } from "../constants";
 import { getUsers } from "../database/users";
-import http from "node:http";
+import { NotFoundError } from "../errors";
 
 export async function get(
-  request: http.IncomingMessage
+  userId: string | null
 ): Promise<{ statusCode: number; data: unknown }> {
-  console.log("url", request.url);
+  if (userId === null) {
+    return { statusCode: STATUS_CODES.OK, data: getUsers() };
+  }
 
-  return { statusCode: STATUS_CODES.OK, data: getUsers() };
+  const user = getUsers().find(({ id }) => id === userId);
+
+  if (user) {
+    return { statusCode: STATUS_CODES.OK, data: user };
+  }
+
+  throw new NotFoundError();
 }

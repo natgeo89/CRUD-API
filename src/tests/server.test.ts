@@ -112,5 +112,9 @@ describe("Integration test API", () => {
         hobbies: ["chess"],
       },
     ]);
+
+    const response5 = await request.patch("/api/users");
+    expect(response5.status).toBe(405);
+    expect(response5.body).toEqual("Method not allowed");
   });
 });

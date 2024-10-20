@@ -27,3 +27,7 @@ export function deleteUser(userId: User['id']): void {
 
   DB_USERS.push(...restUsers);
 }
+
+export function clearDB(): void {
+  DB_USERS.length = 0;
+}

@@ -5,7 +5,7 @@ import { controller } from "./services/controller";
 
 dotenv.config({ path: path.resolve(__dirname, "../.env") });
 
-const server = http.createServer(async (request, response) => {
+export const server = http.createServer(async (request, response) => {
   const { statusCode, data } = await controller(request);
 
   response.writeHead(statusCode, {

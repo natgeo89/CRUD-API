@@ -37,7 +37,7 @@ export async function put(
 
 
   return {
-    statusCode: STATUS_CODES.CREATED,
+    statusCode: STATUS_CODES.OK,
     data: updatedUser,
   }
 }

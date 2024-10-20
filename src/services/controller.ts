@@ -4,6 +4,7 @@ import { BadRequestError, NotFoundError } from "../errors";
 import { get } from "./get";
 import { post } from "./post";
 import { parseUrl } from "../utils/parseUrl";
+import { put } from "./put";
 
 export async function controller(
   request: http.IncomingMessage
@@ -20,6 +21,10 @@ export async function controller(
 
       case REQUEST_METHODS.POST: {
         return await post(request);
+      }
+
+      case REQUEST_METHODS.PUT: {
+        return await put(userId, request);
       }
 
       default:

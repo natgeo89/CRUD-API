@@ -17,3 +17,13 @@ export function updateUser(updatedUser: User): void {
 
   DB_USERS[indexOfUpdatedUser] = updatedUser;
 }
+
+export function deleteUser(userId: User['id']): void {
+  const restUsers = DB_USERS.filter(
+    ({ id }) => userId !== id
+  );
+
+  DB_USERS.length = 0;
+
+  DB_USERS.push(...restUsers);
+}

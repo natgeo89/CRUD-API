@@ -5,14 +5,13 @@ import { get } from "./get";
 import { post } from "./post";
 import { parseUrl } from "../utils/parseUrl";
 import { put } from "./put";
+import { deleteMethod } from "./delete";
 
 export async function controller(
   request: http.IncomingMessage
 ): Promise<{ statusCode: number; data: unknown }> {
   try {
     const { userId } = parseUrl(request.url);
-
-    console.log("userId", userId);
 
     switch (request.method) {
       case REQUEST_METHODS.GET: {
@@ -25,6 +24,10 @@ export async function controller(
 
       case REQUEST_METHODS.PUT: {
         return await put(userId, request);
+      }
+
+      case REQUEST_METHODS.DELETE: {
+        return await deleteMethod(userId);
       }
 
       default:

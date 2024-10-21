@@ -3,9 +3,10 @@ import { fileURLToPath } from "url";
 
 export const __filename = fileURLToPath(import.meta.url);
 export const __dirname = path.dirname(__filename);
+const isMulti = process.env.IS_MULTI === "true";
 
 export default {
-  entry: "./src/server.ts",
+  entry: `./src/${isMulti? 'multiServer': 'server'}.ts`,
   module: {
     rules: [
       {

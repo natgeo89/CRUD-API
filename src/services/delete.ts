@@ -9,7 +9,9 @@ export async function deleteMethod(
     throw new BadRequestError();
   }
 
-  const user = getUsers().find(({ id }) => id === userId);
+  const users = await getUsers();
+
+  const user = users.find(({ id }) => id === userId);
 
   if (!user) {
     throw new NotFoundError();

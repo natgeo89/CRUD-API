@@ -27,7 +27,7 @@ export async function post(
     ...validatedBody,
   };
 
-  addUser(newUser);
+  await addUser(newUser);
 
   return {
     statusCode: STATUS_CODES.CREATED,

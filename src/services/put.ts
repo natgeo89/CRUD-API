@@ -14,6 +14,8 @@ export async function put(
     throw new BadRequestError();
   }
 
+  const users = await getUsers();
+
   const parsedBody = await getRequestBody(request);
 
   const validatedBody = validateBody(parsedBody);
@@ -22,7 +24,7 @@ export async function put(
     throw new BadRequestError();
   }
 
-  const user = getUsers().find(({ id }) => id === userId);
+  const user = users.find(({ id }) => id === userId);
 
   if (!user) {
     throw new NotFoundError();
@@ -33,11 +35,10 @@ export async function put(
     ...validatedBody,
   };
 
-  updateUser(updatedUser);
-
+  await updateUser(updatedUser);
 
   return {
     statusCode: STATUS_CODES.OK,
     data: updatedUser,
-  }
+  };
 }

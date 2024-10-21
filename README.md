@@ -13,6 +13,10 @@ npm run start:dev
  ```sh
 npm run start:prod
 ```
+ To start work in multi mode:
+ ```sh
+npm run start:multi
+```
  To run tests:
  ```sh
 npm run test

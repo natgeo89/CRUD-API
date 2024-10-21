@@ -5,6 +5,7 @@
   "scripts": {
     "start:dev": "nodemon",
     "start:prod": "webpack && node ./dist/bundle.js",
+    "start:multi": "npx cross-env IS_MULTI=true webpack && npx cross-env IS_MULTI=true node ./dist/bundle.js",
     "test": "jest",
     "lint": "eslint"
   },
